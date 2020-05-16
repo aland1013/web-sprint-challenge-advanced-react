@@ -18,18 +18,15 @@ const CheckoutForm = () => {
   // const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   // const [values, setValues] = useState(initialValue);
 
-  const [values, handleChanges, handleSubmit] = useForm(
-    {
-      showSuccessMessage: false,
-      firstName: '',
-      lastName: '',
-      address: '',
-      city: '',
-      state: '',
-      zip: ''
-    },
-    'checkout-form'
-  );
+  const [values, handleChanges, handleSubmit] = useForm({
+    showSuccessMessage: false,
+    firstName: '',
+    lastName: '',
+    address: '',
+    city: '',
+    state: '',
+    zip: ''
+  });
 
   // const handleChanges = (e) => {
   //   setValues({ ...values, [e.target.name]: e.target.value });
@@ -39,8 +36,6 @@ const CheckoutForm = () => {
   //   e.preventDefault();
   //   setShowSuccessMessage(true);
   // };
-
-  console.log('values', values.showSuccessMessage);
 
   return (
     <>
