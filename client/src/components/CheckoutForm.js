@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from '../hooks/useForm';
 
 // const initialValue = {
@@ -15,18 +15,20 @@ import { useForm } from '../hooks/useForm';
 // and replace the necessary stateful logic from CheckoutForm with the hook
 
 const CheckoutForm = () => {
-  // const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   // const [values, setValues] = useState(initialValue);
 
-  const [values, handleChanges, handleSubmit] = useForm({
-    showSuccessMessage: false,
-    firstName: '',
-    lastName: '',
-    address: '',
-    city: '',
-    state: '',
-    zip: ''
-  });
+  const [values, handleChanges, handleSubmit] = useForm(
+    {
+      firstName: '',
+      lastName: '',
+      address: '',
+      city: '',
+      state: '',
+      zip: ''
+    },
+    setShowSuccessMessage
+  );
 
   // const handleChanges = (e) => {
   //   setValues({ ...values, [e.target.name]: e.target.value });
@@ -80,7 +82,7 @@ const CheckoutForm = () => {
         <button>Checkout</button>
       </form>
 
-      {values.showSuccessMessage && (
+      {showSuccessMessage && (
         <div className='success-message' data-testid='successMessage'>
           <p>
             You have ordered some plants! Woo-hoo! <span role='img'>🎉</span>
